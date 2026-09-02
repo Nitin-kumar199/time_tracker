@@ -193,6 +193,15 @@ def time_tracker_has_permission(
     if permission_type in READ_PERMISSION_TYPES:
         if ROLE_LOG_EDITOR in roles or ROLE_HR_MANAGER in roles:
             return True
+
+        # Frappe checks read permission before a whitelisted document method is
+        # executed. On a brand-new Correction Request, load_employee_context()
+        # has not run yet, so employee is still empty. Resolve the signed-in
+        # user's active Employee for this permission check instead of denying
+        # the unsaved document before it can initialise itself.
+        if not target_employee and doc.is_new():
+            target_employee = get_employee_for_user(user, active_only=True)
+
         return bool(target_employee and can_read_employee(target_employee, user))
 
     active_own_employees = set(get_employees_for_user(user, active_only=True))
@@ -274,6 +283,15 @@ def correction_request_has_permission(
     if permission_type in READ_PERMISSION_TYPES:
         if ROLE_LOG_EDITOR in roles or ROLE_HR_MANAGER in roles:
             return True
+
+        # Frappe checks read permission before a whitelisted document method is
+        # executed. On a brand-new Correction Request, load_employee_context()
+        # has not run yet, so employee is still empty. Resolve the signed-in
+        # user's active Employee for this permission check instead of denying
+        # the unsaved document before it can initialise itself.
+        if not target_employee and doc.is_new():
+            target_employee = get_employee_for_user(user, active_only=True)
+
         return bool(target_employee and can_read_employee(target_employee, user))
 
     active_own = set(get_employees_for_user(user, active_only=True))

@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "row_type",
+  "tracker_log",
+  "application_status",
+  "column_break_identity",
+  "salary_slip",
+  "applied_tracker_log",
+  "time_section",
+  "start_time",
+  "original_start_time",
+  "hours",
+  "original_hours",
+  "context_section",
+  "project",
+  "task",
+  "ticket_doctype",
+  "ticket",
+  "description",
+  "source_snapshot_section",
+  "original_end_time",
+  "original_project",
+  "original_task",
+  "original_ticket",
+  "original_description",
+  "original_salary_slip",
+  "source_modified",
+  "correction_locked",
+  "lock_reason"
+ ],
+ "fields": [
+  {
+   "default": "New Log",
+   "fieldname": "row_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Row Type",
+   "options": "Existing Log\nNew Log",
+   "read_only": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "tracker_log",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Existing Tracker Log",
+   "options": "Tracker Log",
+   "read_only": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "label": "Application Status",
+   "options": "\nUpdated\nCreated\nNo Change",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_identity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "salary_slip",
+   "fieldtype": "Link",
+   "label": "Salary Slip",
+   "options": "Salary Slip",
+   "read_only": 1
+  },
+  {
+   "fieldname": "applied_tracker_log",
+   "fieldtype": "Link",
+   "label": "Applied Tracker Log",
+   "options": "Tracker Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "time_section",
+   "fieldtype": "Section Break",
+   "label": "Requested Time"
+  },
+  {
+   "description": "For an existing log this is prefilled from the log. For a new row it is optional; the server places an omitted start time after the latest log for the day.",
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Start Time",
+   "columns": 1
+  },
+  {
+   "fieldname": "original_start_time",
+   "fieldtype": "Time",
+   "label": "Original Start Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Corrected Hours",
+   "precision": 6,
+   "reqd": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "original_hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Existing Hours",
+   "precision": 6,
+   "read_only": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "context_section",
+   "fieldtype": "Section Break",
+   "label": "Work Context"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "columns": 2
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "label": "Task",
+   "options": "Task"
+  },
+  {
+   "default": "HD Ticket",
+   "fieldname": "ticket_doctype",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Ticket DocType",
+   "options": "HD Ticket",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ticket",
+   "fieldtype": "Dynamic Link",
+   "label": "Ticket",
+   "options": "ticket_doctype"
+  },
+  {
+   "description": "If left blank on a new row, a standard correction description is added automatically.",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "source_snapshot_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Source Snapshot"
+  },
+  {
+   "fieldname": "original_end_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Original End Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_project",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Original Project",
+   "options": "Project",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_task",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Original Task",
+   "options": "Task",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_ticket",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Original Ticket",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_description",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Original Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "original_salary_slip",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Original Salary Slip",
+   "options": "Salary Slip",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_modified",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Source Modified",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "correction_locked",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Locked",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lock_reason",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Lock Reason",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "module": "Time Tracker",
+ "name": "Time Tracker Correction Log",
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}
