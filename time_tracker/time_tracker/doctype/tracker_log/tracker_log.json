@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-07-24 16:18:25.745818",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "time_tracker",
+  "start_time",
+  "end_time",
+  "hours",
+  "started_by",
+  "ended_by",
+  "column_break_lxrg",
+  "employee",
+  "log_date",
+  "status",
+  "project",
+  "task",
+  "description",
+  "ticket_doctype",
+  "ticket",
+  "salary_slip"
+ ],
+ "fields": [
+  {
+   "fieldname": "time_tracker",
+   "fieldtype": "Link",
+   "label": "Time Tracker",
+   "options": "Time Tracker",
+   "ignore_user_permissions": 1
+  },
+  {
+   "fieldname": "log_date",
+   "fieldtype": "Date",
+   "label": "Log Date"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "hours",
+   "fieldtype": "Float",
+   "label": "Hours",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_lxrg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "ignore_user_permissions": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Running\nStopped"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "label": "Task",
+   "options": "Task"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "description": "Work description. Approved correction requests update this field."
+  },
+  {
+   "default": "HD Ticket",
+   "fieldname": "ticket_doctype",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Ticket DocType",
+   "no_copy": 1,
+   "options": "HD Ticket",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ticket",
+   "fieldtype": "Dynamic Link",
+   "label": "Ticket",
+   "options": "ticket_doctype"
+  },
+  {
+   "fieldname": "started_by",
+   "fieldtype": "Link",
+   "label": "Started By",
+   "options": "User"
+  },
+  {
+   "fieldname": "ended_by",
+   "fieldtype": "Link",
+   "label": "Ended By",
+   "options": "User"
+  },
+  {
+   "description": "Payroll allocation link. Set and cleared automatically by Time Tracker.",
+   "fieldname": "salary_slip",
+   "fieldtype": "Link",
+   "label": "Salary Slip",
+   "options": "Salary Slip",
+   "hidden": 0,
+   "read_only": 1,
+   "search_index": 1,
+   "no_copy": 1,
+   "in_list_view": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Time Tracker",
+ "name": "Tracker Log",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Time Tracker Manager",
+   "select": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Time Tracker User",
+   "select": 1
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "select": 1,
+   "role": "Time Tracker Log Editor"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "select": 1,
+   "role": "HR Manager"
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

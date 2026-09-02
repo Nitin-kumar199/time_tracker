@@ -1,0 +1,318 @@
+{
+ "actions": [],
+ "autoname": "field:company",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "company",
+  "currency",
+  "display_section",
+  "show_salary_slip_on_time_tracker",
+  "salary_slip_print_format",
+  "display_column_break",
+  "show_pay_using_time_tracker_in_payroll_entry",
+  "tracker_automation_section",
+  "enable_employee_automation",
+  "auto_create_time_tracker",
+  "auto_assign_salary_structure",
+  "automation_column_break",
+  "auto_create_appraisal",
+  "auto_allocate_leave",
+  "salary_structure_section",
+  "default_salary_structure",
+  "default_assignment_base",
+  "salary_structure_column_break",
+  "default_assignment_variable",
+  "income_tax_slab",
+  "appraisal_section",
+  "appraisal_cycle",
+  "appraisal_template",
+  "leave_section",
+  "leave_policy",
+  "leave_assignment_based_on",
+  "leave_column_break",
+  "leave_period",
+  "carry_forward",
+  "monthly_payroll_section",
+  "enable_auto_create_monthly_payroll",
+  "payroll_payable_account",
+  "cost_center",
+  "monthly_payroll_column_break",
+  "exchange_rate",
+  "automation_help"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "company.default_currency",
+   "fetch_if_empty": 1,
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "display_section",
+   "fieldtype": "Section Break",
+   "label": "Time Tracker and Payroll Display"
+  },
+  {
+   "default": "1",
+   "description": "Show readable Salary Slips on the employee's Time Tracker dashboard.",
+   "fieldname": "show_salary_slip_on_time_tracker",
+   "fieldtype": "Check",
+   "label": "Show Salary Slip on Time Tracker"
+  },
+  {
+   "description": "Print Format used when a Salary Slip is downloaded from Time Tracker.",
+   "fieldname": "salary_slip_print_format",
+   "fieldtype": "Link",
+   "label": "Salary Slip Print Format",
+   "options": "Print Format"
+  },
+  {
+   "fieldname": "display_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Show the Pay Using Time Tracker checkbox on Payroll Entry for this company.",
+   "fieldname": "show_pay_using_time_tracker_in_payroll_entry",
+   "fieldtype": "Check",
+   "label": "Show Pay Using Time Tracker in Payroll Entry"
+  },
+  {
+   "fieldname": "tracker_automation_section",
+   "fieldtype": "Section Break",
+   "label": "Optional Employee Automation"
+  },
+  {
+   "default": "1",
+   "description": "Enable the optional Employee automation settings below for this company.",
+   "fieldname": "enable_employee_automation",
+   "fieldtype": "Check",
+   "label": "Enable Employee Automation"
+  },
+  {
+   "default": "1",
+   "depends_on": "enable_employee_automation",
+   "description": "Create a permanent Time Tracker when the effective Salary Structure has Based on Time Tracker enabled.",
+   "fieldname": "auto_create_time_tracker",
+   "fieldtype": "Check",
+   "label": "Auto Create Time Tracker"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_employee_automation",
+   "fieldname": "auto_assign_salary_structure",
+   "fieldtype": "Check",
+   "label": "Auto Assign Salary Structure"
+  },
+  {
+   "fieldname": "automation_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_employee_automation",
+   "fieldname": "auto_create_appraisal",
+   "fieldtype": "Check",
+   "label": "Auto Create Draft Appraisal"
+  },
+  {
+   "default": "0",
+   "depends_on": "enable_employee_automation",
+   "fieldname": "auto_allocate_leave",
+   "fieldtype": "Check",
+   "label": "Auto Assign Leave Policy"
+  },
+  {
+   "depends_on": "eval:doc.enable_employee_automation && doc.auto_assign_salary_structure",
+   "fieldname": "salary_structure_section",
+   "fieldtype": "Section Break",
+   "label": "Salary Structure Assignment"
+  },
+  {
+   "description": "Fallback used when Employee Grade has no Default Salary Structure.",
+   "fieldname": "default_salary_structure",
+   "fieldtype": "Link",
+   "label": "Fallback Salary Structure",
+   "options": "Salary Structure"
+  },
+  {
+   "default": "0",
+   "fieldname": "default_assignment_base",
+   "fieldtype": "Currency",
+   "label": "Fallback Assignment Base",
+   "options": "currency"
+  },
+  {
+   "fieldname": "salary_structure_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "default_assignment_variable",
+   "fieldtype": "Currency",
+   "label": "Assignment Variable",
+   "options": "currency"
+  },
+  {
+   "fieldname": "income_tax_slab",
+   "fieldtype": "Link",
+   "label": "Income Tax Slab",
+   "options": "Income Tax Slab"
+  },
+  {
+   "depends_on": "eval:doc.enable_employee_automation && doc.auto_create_appraisal",
+   "fieldname": "appraisal_section",
+   "fieldtype": "Section Break",
+   "label": "Appraisal"
+  },
+  {
+   "fieldname": "appraisal_cycle",
+   "fieldtype": "Link",
+   "label": "Appraisal Cycle",
+   "options": "Appraisal Cycle"
+  },
+  {
+   "fieldname": "appraisal_template",
+   "fieldtype": "Link",
+   "label": "Fallback Appraisal Template",
+   "options": "Appraisal Template"
+  },
+  {
+   "depends_on": "eval:doc.enable_employee_automation && doc.auto_allocate_leave",
+   "fieldname": "leave_section",
+   "fieldtype": "Section Break",
+   "label": "Leave Allocation"
+  },
+  {
+   "fieldname": "leave_policy",
+   "fieldtype": "Link",
+   "label": "Leave Policy",
+   "options": "Leave Policy"
+  },
+  {
+   "default": "Joining Date",
+   "fieldname": "leave_assignment_based_on",
+   "fieldtype": "Select",
+   "label": "Leave Assignment Based On",
+   "options": "Joining Date\nLeave Period"
+  },
+  {
+   "fieldname": "leave_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.leave_assignment_based_on == 'Leave Period'",
+   "fieldname": "leave_period",
+   "fieldtype": "Link",
+   "label": "Leave Period",
+   "mandatory_depends_on": "eval:doc.leave_policy && doc.leave_assignment_based_on == 'Leave Period'",
+   "options": "Leave Period"
+  },
+  {
+   "default": "0",
+   "fieldname": "carry_forward",
+   "fieldtype": "Check",
+   "label": "Carry Forward Existing Leave"
+  },
+  {
+   "fieldname": "monthly_payroll_section",
+   "fieldtype": "Section Break",
+   "label": "Monthly Payroll Automation"
+  },
+  {
+   "default": "0",
+   "description": "Automatically create a monthly Time Tracker Payroll Entry and its Salary Slips for the previous calendar month. Salary Slips remain Draft for review.",
+   "fieldname": "enable_auto_create_monthly_payroll",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Auto Create Payroll Entry and Salary Slips Every Month"
+  },
+  {
+   "fieldname": "payroll_payable_account",
+   "fieldtype": "Link",
+   "label": "Payroll Payable Account",
+   "mandatory_depends_on": "enable_auto_create_monthly_payroll",
+   "options": "Account"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "mandatory_depends_on": "enable_auto_create_monthly_payroll",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "monthly_payroll_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "mandatory_depends_on": "enable_auto_create_monthly_payroll",
+   "precision": 6
+  },
+  {
+   "fieldname": "automation_help",
+   "fieldtype": "HTML",
+   "label": "Help",
+   "options": "<p><strong>Based on Time Tracker</strong> on Salary Structure is independent from ERPNext's standard <strong>Salary Slip Based on Timesheet</strong> option. Monthly automation creates a submitted Payroll Entry and Draft Salary Slips from stopped, unpaid Tracker Logs.</p>"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "Time Tracker",
+ "name": "Time Tracker Setting",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "write": 1,
+   "select": 1
+  }
+ ],
+ "sort_field": "company",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "company"
+}

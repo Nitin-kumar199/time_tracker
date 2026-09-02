@@ -1,0 +1,292 @@
+{
+ "actions": [],
+ "autoname": "format:TTCR-{YYYY}-{#####}",
+ "creation": "2026-08-18 14:17:27.256719",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "request_section",
+  "request_date",
+  "requested_by",
+  "workflow_state",
+  "request_column_break",
+  "employee",
+  "employee_name",
+  "time_tracker",
+  "current_values_section",
+  "current_log_date",
+  "current_hours",
+  "current_project",
+  "current_task",
+  "current_description",
+  "requested_values_section",
+  "correction_date",
+  "total_hours",
+  "project",
+  "task",
+  "description",
+  "review_section",
+  "manager_remarks",
+  "review_column_break",
+  "reviewed_by",
+  "reviewed_on",
+  "updated_tracker_log",
+  "updated_by",
+  "updated_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "request_section",
+   "fieldtype": "Section Break",
+   "label": "Correction Request"
+  },
+  {
+   "default": "Today",
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Request",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "User",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Requested",
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Workflow State",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "tracker_log.employee",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tracker_log.time_tracker",
+   "fieldname": "time_tracker",
+   "fieldtype": "Link",
+   "label": "Time Tracker",
+   "options": "Time Tracker",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_values_section",
+   "fieldtype": "Section Break",
+   "label": "Current Tracker Log Values"
+  },
+  {
+   "fieldname": "current_log_date",
+   "fieldtype": "Date",
+   "label": "Current Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_hours",
+   "fieldtype": "Float",
+   "label": "Current Hours",
+   "precision": "6",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_project",
+   "fieldtype": "Link",
+   "label": "Current Project",
+   "options": "Project",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_task",
+   "fieldtype": "Link",
+   "label": "Current Task",
+   "options": "Task",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_description",
+   "fieldtype": "Small Text",
+   "label": "Current Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "requested_values_section",
+   "fieldtype": "Section Break",
+   "label": "Requested Values"
+  },
+  {
+   "fieldname": "correction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date for Correction",
+   "reqd": 1
+  },
+  {
+   "description": "The corrected duration for this Tracker Log.",
+   "fieldname": "total_hours",
+   "fieldtype": "Float",
+   "label": "Total Hours to Update",
+   "precision": "6",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "label": "Task",
+   "options": "Task"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "review_section",
+   "fieldtype": "Section Break",
+   "label": "Manager Review and Update"
+  },
+  {
+   "description": "Reason for approval or rejection, or notes for the Tracker Log update.",
+   "fieldname": "manager_remarks",
+   "fieldtype": "Small Text",
+   "label": "Manager Remarks"
+  },
+  {
+   "fieldname": "review_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reviewed_on",
+   "fieldtype": "Datetime",
+   "label": "Reviewed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "updated_tracker_log",
+   "fieldtype": "Link",
+   "label": "Updated Tracker Log",
+   "options": "Tracker Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Link",
+   "label": "Updated By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "updated_on",
+   "fieldtype": "Datetime",
+   "label": "Updated On",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-08-18 17:48:19.850834",
+ "modified_by": "Administrator",
+ "module": "Time Tracker",
+ "name": "Time Tracker Correction Request",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Time Tracker User",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Time Tracker Manager",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Time Tracker Log Editor",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "select": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "request_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "autoname": "field:employee",
+ "creation": "2026-07-24 16:13:17.898449",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "status",
+  "enable_browser_widget",
+  "analytics_viewer",
+  "log_viewer"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "unique": 1,
+   "reqd": 1,
+   "in_list_view": 1,
+   "search_index": 1,
+   "ignore_user_permissions": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "fetch_from": "employee.employee_name",
+   "read_only": 1,
+   "in_list_view": 0,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "hidden": 1
+  },
+  {
+   "default": "Active",
+   "fetch_from": "employee.status",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nSuspended\nLeft",
+   "read_only": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "columns": 1,
+   "bold": 1
+  },
+  {
+   "default": "1",
+   "description": "Show the compact floating timer on Frappe Desk. It is enabled by default for new Time Trackers and can be changed from the dashboard.",
+   "fieldname": "enable_browser_widget",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Enable Browser Widget",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "analytics_viewer",
+   "fieldtype": "HTML",
+   "label": "Time Tracker Dashboard"
+  },
+  {
+   "fieldname": "log_viewer",
+   "fieldtype": "HTML",
+   "label": "Log Viewer",
+   "hidden": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-08-10 13:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Time Tracker",
+ "name": "Time Tracker",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Time Tracker User",
+   "select": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Time Tracker Manager",
+   "select": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Time Tracker Log Editor",
+   "select": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "select": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "show_title_field_in_link": 1
+}

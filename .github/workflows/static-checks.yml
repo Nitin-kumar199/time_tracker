@@ -1,0 +1,35 @@
+name: Static checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax-and-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Reject committed Python bytecode
+        run: |
+          if find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -print -quit | grep -q .; then
+            echo "Compiled Python files must not be committed."
+            exit 1
+          fi
+
+      - name: Compile Python
+        env:
+          PYTHONPYCACHEPREFIX: /tmp/time_tracker-pycache
+        run: python -m compileall -q time_tracker
+
+      - name: Check JavaScript syntax
+        run: find time_tracker -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check

@@ -1,0 +1,34 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# JavaScript dependencies
+node_modules/
+
+# Frappe/Bench generated files
+*.log
+*.pid
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
